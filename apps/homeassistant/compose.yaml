@@ -1,0 +1,99 @@
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    depends_on:
+      - mosquitto
+      - zigbee2mqtt
+      - mariadb
+      - influxdb
+    volumes:
+      - ${DATA_DIR}/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    ports:
+      - ${HASS_PORT}:8123
+    restart: unless-stopped
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+  mariadb:
+    image: mariadb
+    container_name: homeassistant-mariadb
+    restart: unless-stopped
+    user: ${USER_ID}:${GROUP_ID}
+    env_file:
+      - mariadb.env
+    volumes:
+      - ${DATA_DIR}/mariadb:/var/lib/mysql
+    ports:
+      - ${MARIADB_PORT}:3306
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: homeassistant-mosquitto
+    user: ${USER_ID}:${GROUP_ID}
+    volumes:
+      - ${DATA_DIR}/mosquitto:/mosquitto/
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: always
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt:latest
+    container_name: homeassistant-zigbee2mqtt
+    user: ${USER_ID}:${GROUP_ID}
+    group_add:
+      - dialout
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+      - mariadb
+    volumes:
+      - ${DATA_DIR}/zigbee2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    ports:
+      - ${Z2M_PORT}:8080
+    environment:
+      - TZ=${TIMEZONE}
+    devices:
+      - ${ZIGBEE_DEVICE}:/dev/ttyACM0
+  hass-configurator:
+    image: causticlab/hass-configurator-docker
+    container_name: homeassistant-hass-configurator
+    user: ${USER_ID}:${GROUP_ID}
+    restart: unless-stopped
+    ports:
+      - ${HASS_CONFIGURATOR_PORT}:3218/tcp
+    depends_on:
+      - homeassistant
+    volumes:
+      - ${DATA_DIR}/hass-configurator:/config"
+      - ${DATA_DIR}/homeassistant:/hass-config"
+  nodered:
+    image: nodered/node-red:latest
+    container_name: homeassistant-nodered
+    user: ${USER_ID}:${GROUP_ID}
+    depends_on:
+      - mosquitto
+      - homeassistant
+    environment:
+      - TZ=${TIMEZONE}
+    ports:
+      - ${NODERED_PORT}:1880
+    volumes:
+      - ${DATA_DIR}/nodered:/data
+    restart: always
+  influxdb:
+    image: influxdb:latest
+    container_name: homeassistant-influxdb
+    user: ${USER_ID}:${GROUP_ID}
+    security_opt:
+      - no-new-privileges:true
+    env_file:
+      - influxdb.env
+    volumes:
+      - ${DATA_DIR}/influxdb/config:/etc/influxdb2
+      - ${DATA_DIR}/influxdb/db:/var/lib/influxdb2
+    ports:
+      - ${INFLUXDB_PORT}:8086
+networks: {}
