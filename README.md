@@ -1,13 +1,13 @@
-## truenas-docker-compose
+## truenas-docker-compose: Power Up Your TrueNAS SCALE Server
 
-This repository provides meticulously crafted Docker Compose files for deploying a range of applications on your TrueNAS SCALE server. Leverage the power of Nvidia GPUs (e.g., Tesla) for enhanced performance and AI capabilities. 
+This repository houses meticulously crafted Docker Compose files designed to effortlessly deploy a suite of powerful applications on your TrueNAS SCALE server. Take advantage of Nvidia GPUs (e.g., Tesla) for accelerated performance and unlock the potential of AI with dedicated containers. 
 
 **Prerequisites:**
 
 * **TrueNAS Scale 24.04 (Dragonfish):**
    * Set up sandboxes with Jailmaker: [TrueNAS Scale: Setting up Sandboxes with Jailmaker](https://youtu.be/S0nTRvAHAP8)
 * **TrueNAS Scale 24.10 (Electric Eel) and up:**
-    * Migrate sandboxes to Docker: [TrueNAS Scale: Migrating Sandboxes to Docker in Electric Eel // Compose, Dockge & Jailmaker](https://youtu.be/R0Vdj1culo0)
+    * Native Docker: [TrueNAS Scale: Migrating Sandboxes to Docker in Electric Eel // Compose, Dockge & Jailmaker](https://youtu.be/R0Vdj1culo0)
 
 
 **Current Applications:**
@@ -29,6 +29,13 @@ This repository provides meticulously crafted Docker Compose files for deploying
 
 * **Nvidia GPU Support:** All docker-compose files are meticulously configured to leverage Nvidia GPUs (e.g., Tesla) for enhanced performance and AI capabilities. 
 * **Optimized Performance:**  Dockerfiles are tailored for TrueNAS Scale, ensuring efficient resource utilization. 
+
+**Example of a hardware where this can be run:**
+
+* **[HP Microserver Gen 8](https://h20427.www2.hpe.com/pdf/HP_ProLiant_MicroServer_Gen8_quicspec.pdf):**
+    * CPU: [Intel(R) Xeon(R) CPU E3-1265L V2](https://ark.intel.com/content/www/us/en/ark/products/65728/intel-xeon-processor-e3-1265l-v2-8m-cache-2-50-ghz.html)
+    * Memory: 16Gb ECC
+    * GPU: [NVidia Tesla P4 8Gb](https://www.techpowerup.com/gpu-specs/tesla-p4.c2879) or [NVidia Tesla T4 16Gb](https://www.techpowerup.com/gpu-specs/tesla-t4.c3316)
 
 **Important Notes:**
 
