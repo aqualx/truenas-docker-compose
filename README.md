@@ -12,11 +12,12 @@ This repository houses meticulously crafted Docker Compose files designed to eff
 
 **Current Applications:**
 
-* **[Home Assistant (HA)](https://github.com/home-assistant):** 
+* **[Home Assistant (HA)](https://github.com/home-assistant):**
     * A comprehensive setup with mariadb, mosquitto, zigbee2mqtt, hass-configurator, nodered, and influxdb.
 * **[Ollama](https://github.com/ollama/ollama) + [open-webui](https://github.com/open-webui/open-webui):**  Harness the power of Ollama for personalized AI experiences.
 * **[Nextcloud](https://github.com/nextcloud):** The latest release includes the latest ffmpeg package and `go-vod` for hardware video transcoding in Memories applications, ensuring smooth performance.
 * **[Vaultwarden](https://github.com/dani-garcia/vaultwarden):** Securely manage your passwords with a self-hosted Bitwarden solution.
+* **[Nginx Proxy Manager](https://github.com/NginxProxyManager/nginx-proxy-manager):** Expose web services on your network. Free SSL with Let's Encrypt.
 
 **Folder Structure:**
 
