@@ -12,11 +12,11 @@ This repository houses meticulously crafted Docker Compose files designed to eff
 
 **Current Applications:**
 
-* **Home Assistant (HA):** 
+* **[Home Assistant (HA)](https://github.com/home-assistant):** 
     * A comprehensive setup with mariadb, mosquitto, zigbee2mqtt, hass-configurator, nodered, and influxdb.
-* **Ollama + open-webui:**  Harness the power of Ollama for personalized AI experiences.
-* **Nextcloud:** The latest release includes the latest ffmpeg package and `go-vod` for hardware video transcoding in Memories applications, ensuring smooth performance.
-* **Vaultwarden:** Securely manage your passwords with a self-hosted Bitwarden solution.
+* **[Ollama](https://github.com/ollama/ollama) + [open-webui](https://github.com/open-webui/open-webui):**  Harness the power of Ollama for personalized AI experiences.
+* **[Nextcloud](https://github.com/nextcloud):** The latest release includes the latest ffmpeg package and `go-vod` for hardware video transcoding in Memories applications, ensuring smooth performance.
+* **[Vaultwarden](https://github.com/dani-garcia/vaultwarden):** Securely manage your passwords with a self-hosted Bitwarden solution.
 
 **Folder Structure:**
 
@@ -39,7 +39,7 @@ This repository houses meticulously crafted Docker Compose files designed to eff
 
 **Important Notes:**
 
-* **Environment Variables (`USER_ID`, `GROUP_ID`, `TIMEZONE}`, etc.):** Create users/groups for rootless docker usage within your TrueNAS Scale and set them in your `.env` files according to your configuration.
+* **Environment Variables (`USER_ID`, `GROUP_ID`, `TIMEZONE`, etc.):** Create users/groups for rootless docker usage within your TrueNAS Scale and set them in your `.env` files according to your configuration.
 * **Data Directories (`DATA_DIR`):** Define the path to your shared data directory (e.g., `/mnt/storage/docker`) where applications will store their persistent data  and set them in your `.env` files according to your configuration.
 * **Network Configuration:** Adjust network settings within `compose.yaml` as needed for your TrueNAS Scale environment.
 
