@@ -15,9 +15,21 @@ services:
           devices:
             - capabilities:
                 - gpu
+  pipelines:
+    image: ghcr.io/open-webui/pipelines:main
+    container_name: ollama-open-webui-pipelines
+    ports:
+      - 9099:9099
+    environment:
+      # Example pipeline
+      # - PIPELINES_URLS="https://github.com/open-webui/pipelines/blob/main/examples/filters/detoxify_filter_pipeline.py"
+      - ADD_HOST=host.docker.internal:host-gateway
+    volumes:
+      - ${DATA_DIR}/pipelines:/app/pipelines
+    restart: always
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
-    container_name: open-webui
+    container_name: ollama-open-webui
     ports:
       - ${OPEN_WEBUI_PORT}:8080
     extra_hosts:
