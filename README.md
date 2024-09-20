@@ -36,7 +36,7 @@ This repository houses meticulously crafted Docker Compose files designed to eff
 * **[HP Microserver Gen 8](https://h20427.www2.hpe.com/pdf/HP_ProLiant_MicroServer_Gen8_quicspec.pdf):**
     * CPU: [Intel(R) Xeon(R) CPU E3-1265L V2](https://ark.intel.com/content/www/us/en/ark/products/65728/intel-xeon-processor-e3-1265l-v2-8m-cache-2-50-ghz.html)
     * Memory: 16Gb ECC
-    * GPU: [NVidia Tesla P4 8Gb](https://www.techpowerup.com/gpu-specs/tesla-p4.c2879) or [NVidia Tesla T4 16Gb](https://www.techpowerup.com/gpu-specs/tesla-t4.c3316)
+    * GPU: [NVidia Tesla P4 8Gb](https://www.techpowerup.com/gpu-specs/tesla-p4.c2879) ([Verified cheap eBay listing](https://www.ebay.com/itm/134545631421)) or [NVidia Tesla T4 16Gb](https://www.techpowerup.com/gpu-specs/tesla-t4.c3316)
 
 **Important Notes:**
 
