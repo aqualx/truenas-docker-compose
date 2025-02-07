@@ -45,3 +45,6 @@ This repository houses meticulously crafted Docker Compose files designed to eff
 * **Network Configuration:** Adjust network settings within `compose.yaml` as needed for your TrueNAS Scale environment.
 
 Let me know if you have any questions or need further assistance!
+
+**Additional links:**
+* Thinking about a career change? Prepare for hiring quiz tests used by big companies with IQ training at [BrainStorm.Place](https://brainstorm.place)
